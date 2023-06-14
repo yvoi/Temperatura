@@ -1,0 +1,112 @@
+conversor
+import java.util.Scanner;
+
+public class ConversorTemperatura {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        double temperaturaCelsius;
+
+        do {
+
+            System.out.println("----- Conversor de Temperatura -----");
+
+            System.out.println("Escolha uma opção:");
+
+            System.out.println("1. Converter para Kelvin");
+
+            System.out.println("2. Converter para Réaumur");
+
+            System.out.println("3. Converter para Rankine");
+
+            System.out.println("4. Converter para Fahrenheit");
+
+            System.out.println("5. Sair");
+
+            System.out.print("Opção: ");
+
+            int opcao = scanner.nextInt();
+
+            if (opcao == 5) {
+
+                System.out.println("Programa encerrado.");
+
+                break;
+
+            }
+
+            System.out.print("Digite a temperatura em graus Celsius: ");
+
+            temperaturaCelsius = scanner.nextDouble();
+
+            switch (opcao) {
+
+                case 1:
+
+                    double temperaturaKelvin = converterParaKelvin(temperaturaCelsius);
+
+                    System.out.println("A temperatura em Kelvin é: " + temperaturaKelvin);
+
+                    break;
+
+                case 2:
+
+                    double temperaturaReaumur = converterParaReaumur(temperaturaCelsius);
+
+                    System.out.println("A temperatura em Réaumur é: " + temperaturaReaumur);
+
+                    break;
+
+                case 3:
+
+                    double temperaturaRankine = converterParaRankine(temperaturaCelsius);
+
+                    System.out.println("A temperatura em Rankine é: " + temperaturaRankine);
+
+                    break;
+
+                case 4:
+
+                    double temperaturaFahrenheit = converterParaFahrenheit(temperaturaCelsius);
+
+                    System.out.println("A temperatura em Fahrenheit é: " + temperaturaFahrenheit);
+
+                    break;
+
+                default:
+
+                    System.out.println("Opção inválida. Por favor, tente novamente.");
+
+            }
+
+        } while (true);
+
+    }
+
+    public static double converterParaKelvin(double celsius) {
+
+        return celsius + 273.15;
+
+    }
+
+    public static double converterParaReaumur(double celsius) {
+
+        return celsius * 0.8;
+
+    }
+
+    public static double converterParaRankine(double celsius) {
+
+        return celsius * 1.8 + 32 + 459.67;
+
+    }
+
+    public static double converterParaFahrenheit(double celsius) {
+
+        return celsius * 1.8 + 32;
+
+    }
+
+}
